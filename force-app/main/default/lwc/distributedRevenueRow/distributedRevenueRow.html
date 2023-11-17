@@ -1,0 +1,16 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item size="1">
+            <h1>{opp.AccountName}</h1>
+        </lightning-layout-item>
+        <lightning-layout-item size="1">
+            <h1>{opp.OpportunityName}</h1>
+        </lightning-layout-item>
+        <template for:each={months} for:item="m">
+            <lightning-layout-item size="1" key={m.d} class="space">
+                <c-distributed-revenue-month opp={opp} month={m.d}></c-distributed-revenue-month>
+            </lightning-layout-item>
+        </template>
+        
+    </lightning-layout>
+</template>

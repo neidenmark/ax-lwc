@@ -1,0 +1,28 @@
+<template>
+    <template lwc:if={opps}>
+        <lightning-card variant="Narrow" title="Distributed Revenue" icon-name="standard:account">
+            <div class="slds-p-horizontal_small">
+                <lightning-layout multiple-rows="true">
+                    <lightning-layout-item size="1">
+                        <h1>Account</h1>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="1">
+                        <h1>Opportunity</h1>
+                    </lightning-layout-item>
+                    <template for:each={months} for:item="m">
+                        <lightning-layout-item size="1" key={m.d}>
+                            <h1>{m.l}</h1>
+                        </lightning-layout-item>
+                    </template>
+                    <template for:each={opps} for:item="o">
+                        <lightning-layout-item size="12" key={o.Id}>
+                            <c-distributed-revenue-row opp={o} months={months}></c-distributed-revenue-row>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+
+            </div>
+        </lightning-card>
+    </template>
+
+</template>
